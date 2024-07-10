@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Schedule Client Meeting</h2>
+  <form (ngSubmit)="onSubmit()" #meetingForm="ngForm">
+    <div>
+      <label for="client">Client:</label>
+      <select id="client" [(ngModel)]="meeting.clientId" name="clientId" required>
+        <option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="date">Date:</label>
+      <input type="datetime-local" id="date" [(ngModel)]="meeting.date" name="date" required>
+    </div>
+    <div>
+      <label for="notes">Notes:</label>
+      <textarea id="notes" [(ngModel)]="meeting.notes" name="notes"></textarea>
+    </div>
+    <button type="submit" [disabled]="meetingForm.invalid">Submit</button>
+  </form>
+  <div *ngIf="meetingScheduled" class="success-message">
+    Meeting scheduled successfully!
+  </div>
+  <div class="meeting-list">
+    <h2>Scheduled Meetings</h2>
+    <ul *ngIf="meetings.length > 0; else noMeetings">
+      <li *ngFor="let meeting of meetings">
+        {{ meeting.meetingDate | date: 'short' }} - {{ meeting.notes }} 
+        <button (click)="cancelMeeting(meeting.id)">Cancel</button>
+      </li>
+    </ul>
+    <ng-template #noMeetings>
+      <p>No meetings scheduled.</p>
+    </ng-template>
+  </div>
+</div>
+
+
+

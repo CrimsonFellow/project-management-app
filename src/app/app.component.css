@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .side-menu {
+    width: 200px;
+    background-color: #f8f8f8;
+    border-right: 1px solid #ccc;
+    padding: 1em;
+  }
+  
+  .side-menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .side-menu ul li {
+    margin-bottom: 1em;
+  }
+  
+  .side-menu ul li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 0.5em;
+    border-radius: 0.5em;
+  }
+  
+  .side-menu ul li a:hover {
+    background-color: #ccc;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 2em;
+  }
+  
