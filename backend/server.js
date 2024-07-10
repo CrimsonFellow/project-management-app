@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Initialize Sequelize
-const sequelize = new Sequelize('project_management', 'root', 'sparky1225', {
+const sequelize = new Sequelize('project_management', 'root', '123456', {
   host: 'localhost',
   dialect: 'mysql',
 });
